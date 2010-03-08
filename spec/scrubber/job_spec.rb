@@ -19,7 +19,7 @@ describe Scrubber::Job do
   end
 
   it 'should append to the list of field transforms when I specify a scrub' do
-    @job.scrub(:email, :change_to => nil)
+    @job.scrub(:email, :set_to => nil)
     @job.field_transforms.size.should eql(1)
   end
 end

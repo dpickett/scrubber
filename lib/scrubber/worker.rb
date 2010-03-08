@@ -10,5 +10,9 @@ module Scrubber
       @jobs << Scrubber::Job.new(table_name, options)
       yield(@jobs.last)
     end
+
+    def perform
+      @jobs.each{|j| j.perform}
+    end
   end
 end

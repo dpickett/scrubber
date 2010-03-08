@@ -4,6 +4,8 @@ require 'scrubber'
 require 'spec'
 require 'spec/autorun'
 
+require 'models'
+
 Spec::Runner.configure do |config|
   
 end

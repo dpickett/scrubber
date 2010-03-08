@@ -2,7 +2,7 @@
 
 Scrubber.perform do
   scrub_table :users, :unless => proc {|user| user.email =~ /mydomain.com/i } do |user|
-    user.scrub :email, :set_to => "user#{user.id}@example.com"
+    user.scrub :email, :set_to => "user[:id]@example.com"
     user.scrub :credit_card_number, :set_to => ""
   end
 end

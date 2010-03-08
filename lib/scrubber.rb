@@ -1,7 +1,11 @@
+require 'rubygems'
+require 'active_support'
+require 'active_record'
+
 [
-  "field_transform",
-  "job",
-  "worker"
+  'field_transform',
+  'job',
+  'worker'
 ].each do |file|
   require "scrubber/#{file}"
 end
@@ -9,7 +13,7 @@ end
 module Scrubber
   def self.perform(&block)
     worker = Scrubber::Worker.new
-    worker.instance_eval(block)
+    yield(worker)
     worker.perform
   end
 end
